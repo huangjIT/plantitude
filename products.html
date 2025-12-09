@@ -22,13 +22,14 @@
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <a href="#products" class="nav-link">Products</a>
-        <a href="purchase.html" class="nav-link">Purchase Info</a>
         <a href="about.html" class="nav-link">About Us</a>
       </nav>
       
       <!-- Mobile Menu Button -->
       <button id="menuBtn" class="menu-btn">
-        <i class="fa-solid fa-bars"></i>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
     
@@ -36,7 +37,6 @@
     <div id="mobileMenu" class="mobile-menu">
       <nav>
         <a href="#products">Products</a>
-        <a href="purchase.html">Purchase Info</a>
         <a href="about.html">About Us</a>
       </nav>
     </div>
@@ -56,13 +56,13 @@
   <!-- Products Section -->
   <section id="products" class="products-section">
     <div class="container">
-      <h2 class="section-title">Featured Potted Plants</h2>
+      <h2 class="section-title scroll-fade">Featured Potted Plants</h2>
       <div class="product-grid">
         <!-- Product Card 1 - Cactus -->
-        <div class="product-card">
+        <div class="product-card scroll-animate">
           <picture>
-            <source media="(min-width: 768px)" srcset="images/cactus-4161380_1280.jpg">
-            <img src="images/cactus-4161380_640.jpg" alt="Mini Barrel Cactus" class="product-img">
+            <source media="(min-width: 768px)" data-srcset="images/cactus-4161380_1280.jpg">
+            <img data-src="images/cactus-4161380_640.jpg" alt="Mini Barrel Cactus" class="product-img lazy-load">
           </picture>
           <div class="product-info">
             <h3>Mini Barrel Cactus</h3>
@@ -75,10 +75,10 @@
         </div>
 
         <!-- Product Card 2 - Flowering Plant -->
-        <div class="product-card">
+        <div class="product-card scroll-animate">
           <picture>
-            <source media="(min-width: 768px)" srcset="images/flowers-5813227_1280.jpg">
-            <img src="images/flowers-5813227_640.jpg" alt="Purple Flowering Plant" class="product-img">
+            <source media="(min-width: 768px)" data-srcset="images/flowers-5813227_1280.jpg">
+            <img data-src="images/flowers-5813227_640.jpg" alt="Purple Flowering Plant" class="product-img lazy-load">
           </picture>
           <div class="product-info">
             <h3>Purple Flowering Plant</h3>
@@ -91,10 +91,10 @@
         </div>
 
         <!-- Product Card 3 - Bonsai -->
-        <div class="product-card">
+        <div class="product-card scroll-animate">
           <picture>
-            <source media="(min-width: 768px)" srcset="images/living-room-8254772_1280.jpg">
-            <img src="images/living-room-8254772_640.jpg" alt="Ficus Bonsai Tree" class="product-img">
+            <source media="(min-width: 768px)" data-srcset="images/living-room-8254772_1280.jpg">
+            <img data-src="images/living-room-8254772_640.jpg" alt="Ficus Bonsai Tree" class="product-img lazy-load">
           </picture>
           <div class="product-info">
             <h3>Ficus Bonsai Tree</h3>
@@ -107,10 +107,10 @@
         </div>
 
         <!-- Product Card 4 - Ponytail Palm -->
-        <div class="product-card">
+        <div class="product-card scroll-animate">
           <picture>
-            <source media="(min-width: 768px)" srcset="images/ponytail-plant-1733084_1280.jpg">
-            <img src="images/ponytail-plant-1733084_640.jpg" alt="Ponytail Palm" class="product-img">
+            <source media="(min-width: 768px)" data-srcset="images/ponytail-plant-1733084_1280.jpg">
+            <img data-src="images/ponytail-plant-1733084_640.jpg" alt="Ponytail Palm" class="product-img lazy-load">
           </picture>
           <div class="product-info">
             <h3>Ponytail Palm</h3>
@@ -123,10 +123,10 @@
         </div>
 
         <!-- Product Card 5 - Single Succulent -->
-        <div class="product-card">
+        <div class="product-card scroll-animate">
           <picture>
-            <source media="(min-width: 768px)" srcset="images/succulent-5995996_1280.jpg">
-            <img src="images/succulent-5995996_640.jpg" alt="Blue Succulent" class="product-img">
+            <source media="(min-width: 768px)" data-srcset="images/succulent-5995996_1280.jpg">
+            <img data-src="images/succulent-5995996_640.jpg" alt="Blue Succulent" class="product-img lazy-load">
           </picture>
           <div class="product-info">
             <h3>Blue Succulent</h3>
@@ -139,10 +139,10 @@
         </div>
 
         <!-- Product Card 6 - Succulent Collection -->
-        <div class="product-card">
+        <div class="product-card scroll-animate">
           <picture>
-            <source media="(min-width: 768px)" srcset="images/succulents-2347550_1280.jpg">
-            <img src="images/succulents-2347550_640.jpg" alt="Succulent Collection" class="product-img">
+            <source media="(min-width: 768px)" data-srcset="images/succulents-2347550_1280.jpg">
+            <img data-src="images/succulents-2347550_640.jpg" alt="Succulent Collection" class="product-img lazy-load">
           </picture>
           <div class="product-info">
             <h3>Succulent Collection</h3>
@@ -155,10 +155,10 @@
         </div>
 
         <!-- Product Card 7 - Japanese Bonsai -->
-        <div class="product-card">
+        <div class="product-card scroll-animate">
           <picture>
-            <source media="(min-width: 768px)" srcset="images/bonsai-1171555_1280.jpg">
-            <img src="images/bonsai-1171555_640.jpg" alt="Japanese Bonsai Tree" class="product-img">
+            <source media="(min-width: 768px)" data-srcset="images/bonsai-1171555_1280.jpg">
+            <img data-src="images/bonsai-1171555_640.jpg" alt="Japanese Bonsai Tree" class="product-img lazy-load">
           </picture>
           <div class="product-info">
             <h3>Japanese Bonsai Tree</h3>
@@ -171,10 +171,10 @@
         </div>
 
         <!-- Product Card 8 - Golden Succulent -->
-        <div class="product-card">
+        <div class="product-card scroll-animate">
           <picture>
-            <source media="(min-width: 768px)" srcset="images/succulent-5928875_1280.jpg">
-            <img src="images/succulent-5928875_640.jpg" alt="Golden Succulent" class="product-img">
+            <source media="(min-width: 768px)" data-srcset="images/succulent-5928875_1280.jpg">
+            <img data-src="images/succulent-5928875_640.jpg" alt="Golden Succulent" class="product-img lazy-load">
           </picture>
           <div class="product-info">
             <h3>Golden Succulent</h3>
@@ -185,10 +185,6 @@
             </div>
           </div>
         </div>
-      </div>
-      
-      <div class="text-center">
-        <a href="#" class="more-btn">View More Products</a>
       </div>
     </div>
   </section>
@@ -210,7 +206,6 @@
           <h4 class="footer-title">Quick Links</h4>
           <ul class="footer-links">
             <li><a href="#products">Products</a></li>
-            <li><a href="purchase.html">Purchase Info</a></li>
             <li><a href="about.html">About Us</a></li>
           </ul>
         </div>
@@ -218,14 +213,70 @@
         <div>
           <h4 class="footer-title">Contact Us</h4>
           <ul class="footer-contact">
-            <li><i class="fa-solid fa-phone"></i> +1 (800) 123-4567</li>
-            <li><i class="fa-solid fa-envelope"></i> contact@greenisle.com</li>
-            <li><i class="fa-solid fa-location-dot"></i> 123 Main St, New York, NY 10001</li>
+            <li><i class="fa-solid fa-phone"></i> +1 (519) 555-0123</li>
+            <li><i class="fa-solid fa-envelope"></i> info@plantitude.ca</li>
+            <li><i class="fa-solid fa-location-dot"></i> Downtown Kitchener, ON, Canada</li>
           </ul>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- Order Form Overlay -->
+  <div id="orderFormOverlay" class="order-overlay">
+    <div class="order-form-container">
+      <!-- Close Button -->
+      <button id="closeFormBtn" class="close-form-btn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Product Preview -->
+      <div class="order-product-preview">
+        <img id="orderProductImg" src="" alt="Product">
+        <h3 id="orderProductName"></h3>
+        <p id="orderProductPrice"></p>
+      </div>
+
+      <!-- Order Form -->
+      <form id="orderForm" class="order-form">
+        <h2>Complete Your Order</h2>
+
+        <div class="form-group">
+          <label for="customerName">Full Name *</label>
+          <input type="text" id="customerName" name="customerName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="customerEmail">Email *</label>
+          <input type="email" id="customerEmail" name="customerEmail" required>
+        </div>
+
+        <div class="form-group">
+          <label for="customerPhone">Phone Number *</label>
+          <input type="tel" id="customerPhone" name="customerPhone" required>
+        </div>
+
+        <div class="form-group">
+          <label for="customerAddress">Delivery Address *</label>
+          <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantity *</label>
+          <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Special Instructions (Optional)</label>
+          <textarea id="notes" name="notes" rows="2"></textarea>
+        </div>
+
+        <button type="submit" class="submit-order-btn">
+          <i class="fa-solid fa-check"></i> Submit Order
+        </button>
+      </form>
+    </div>
+  </div>
 
   <!-- Script -->
   <script src="script.js"></script>

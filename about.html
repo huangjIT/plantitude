@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Green Isle - About Us</title>
+  <title>Plantitude - About Us</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Custom CSS -->
@@ -16,19 +16,20 @@
       <!-- Logo -->
       <a href="products.html" class="logo">
         <i class="fa-solid fa-leaf"></i>
-        <h1>Green Isle</h1>
+        <h1>Plantitude</h1>
       </a>
       
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <a href="products.html" class="nav-link">Products</a>
-        <a href="purchase.html" class="nav-link">Purchase Info</a>
         <a href="#about" class="nav-link">About Us</a>
       </nav>
       
       <!-- Mobile Menu Button -->
       <button id="menuBtn" class="menu-btn">
-        <i class="fa-solid fa-bars"></i>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
     
@@ -36,7 +37,6 @@
     <div id="mobileMenu" class="mobile-menu">
       <nav>
         <a href="products.html">Products</a>
-        <a href="purchase.html">Purchase Info</a>
         <a href="#about">About Us</a>
       </nav>
     </div>
@@ -45,12 +45,12 @@
   <!-- About Us Section -->
   <section id="about" class="about-section">
     <div class="container">
-      <h2 class="section-title">About Us</h2>
+      <h2 class="section-title scroll-fade">About Us</h2>
       <div class="about-content">
-        <img src="https://picsum.photos/id/225/600/800" alt="Brand Story" class="about-img">
-        <div class="about-text">
-          <h3>Green Isle - Born from Passion, Rooted in Nature</h3>
-          <p>Founded in 2018, Green Isle was established by a group of young people who love plants and life. We have deep expertise in potted plant cultivation, selecting high-quality seedlings from the source and adhering to pesticide-free, pollution-free cultivation methods to bring healthy, fresh potted plants to our customers.</p>
+        <img data-src="./images/about_plants.jpg" alt="Brand Story" class="about-img lazy-load scroll-slide-left">
+        <div class="about-text scroll-slide-right">
+          <h3>Plantitude - Born from Passion, Rooted in Nature</h3>
+          <p>Founded in 2018, Plantitude was established by a group of young people who love plants and life. We have deep expertise in potted plant cultivation, selecting high-quality seedlings from the source and adhering to pesticide-free, pollution-free cultivation methods to bring healthy, fresh potted plants to our customers.</p>
           <p>We believe that a small potted plant can bring healing and warmth to the fast-paced modern life. Whether it's a mini succulent for your desk or a large green plant for your living room, it's a beautiful connection between nature and life.</p>
           <p>In the future, we will continue to uphold our original aspiration, expand our product range, and improve service quality to let more people experience the beauty of life brought by potted plants.</p>
           
@@ -65,6 +65,59 @@
     </div>
   </section>
 
+  <!-- Location Section -->
+  <section id="location" class="location-section">
+    <div class="container">
+      <h2 class="section-title scroll-fade">Visit Our Store</h2>
+      <div class="location-content scroll-animate">
+        <div class="location-info">
+          <div class="location-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <h3>Address</h3>
+              <p>Downtown Kitchener<br>Ontario, Canada</p>
+            </div>
+          </div>
+          <div class="location-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <h3>Hours</h3>
+              <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                 Saturday: 10:00 AM - 5:00 PM<br>
+                 Sunday: Closed</p>
+            </div>
+          </div>
+          <div class="location-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <h3>Contact</h3>
+              <p>Phone: +1 (519) 555-0123<br>
+                 Email: info@plantitude.ca</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-container">
+          <div id="map-placeholder" class="map-placeholder">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <p>Click to load map</p>
+          </div>
+          <iframe
+            id="store-map"
+            class="store-map"
+            data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46300.89794634657!2d-80.52!3d43.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882bf48c03ee5105%3A0x7c9c364d6c30c5e!2sDowntown%20Kitchener%2C%20Kitchener%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sca!4v1234567890"
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Plantitude Store Location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -72,27 +125,27 @@
         <div>
           <div class="footer-logo">
             <i class="fa-solid fa-leaf"></i>
-            <h3>Green Isle</h3>
+            <h3>Plantitude</h3>
           </div>
           <p class="footer-desc">Beauty of Nature · Joy of Potted Plants</p>
-          <p class="footer-copyright">© 2025 Green Isle. All rights reserved.</p>
+          <p class="footer-copyright">© 2025 Plantitude. All rights reserved.</p>
         </div>
         
         <div>
           <h4 class="footer-title">Quick Links</h4>
           <ul class="footer-links">
             <li><a href="products.html">Products</a></li>
-            <li><a href="purchase.html">Purchase Info</a></li>
             <li><a href="#about">About Us</a></li>
+            <li><a href="#location">Location</a></li>
           </ul>
         </div>
         
         <div>
           <h4 class="footer-title">Contact Us</h4>
           <ul class="footer-contact">
-            <li><i class="fa-solid fa-phone"></i> +1 (800) 123-4567</li>
-            <li><i class="fa-solid fa-envelope"></i> contact@greenisle.com</li>
-            <li><i class="fa-solid fa-location-dot"></i> 123 Main St, New York, NY 10001</li>
+            <li><i class="fa-solid fa-phone"></i> +1 (519) 555-0123</li>
+            <li><i class="fa-solid fa-envelope"></i> info@plantitude.ca</li>
+            <li><i class="fa-solid fa-location-dot"></i> Downtown Kitchener, ON, Canada</li>
           </ul>
         </div>
       </div>
