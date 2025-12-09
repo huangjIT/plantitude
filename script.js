@@ -288,3 +288,65 @@ if (document.readyState === 'loading') {
 } else {
   initMapLazyLoad();
 }
+
+// ========================================
+// SVG Vine Growth Animations
+// ========================================
+
+const initVineAnimations = () => {
+  const vines = document.querySelectorAll('.page-vine');
+
+  if (vines.length === 0) return;
+
+  // Trigger vines on scroll
+  let scrolled = false;
+  
+  const triggerVines = () => {
+    if (!scrolled && window.scrollY > 50) {
+      scrolled = true;
+      vines.forEach(vine => {
+        vine.classList.add('vine-grow');
+      });
+      window.removeEventListener('scroll', triggerVines);
+    }
+  };
+
+  window.addEventListener('scroll', triggerVines);
+  
+  // Also trigger if user scrolls within first 100ms (fast scroll)
+  setTimeout(() => {
+    if (window.scrollY > 50) {
+      triggerVines();
+    }
+  }, 100);
+};
+
+// Initialize vine animations after page loads
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initVineAnimations);
+} else {
+  initVineAnimations();
+}
+
+// ========================================
+// Falling Leaves Animation
+// ========================================
+
+const initFallingLeaves = () => {
+  const container = document.querySelector('.falling-leaves');
+  if (!container) return;
+
+  // Create 10 falling leaves
+  for (let i = 1; i <= 10; i++) {
+    const leaf = document.createElement('div');
+    leaf.className = 'leaf';
+    container.appendChild(leaf);
+  }
+};
+
+// Initialize falling leaves after page loads
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFallingLeaves);
+} else {
+  initFallingLeaves();
+}

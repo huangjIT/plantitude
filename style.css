@@ -1,4 +1,68 @@
-/* 全局基础样式 */
+/* ========================================
+   CSS Custom Properties (Design Tokens)
+   ======================================== */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #10652F;
+  --color-primary-dark: #14532d;
+  --color-primary-light: #15803d;
+  --color-accent: #4ade80;
+  
+  /* Neutral Colors */
+  --color-bg-main: #f9fafb;
+  --color-bg-card: #ffffff;
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #4b5563;
+  --color-text-light: #d1d5db;
+  --color-border: #e5e7eb;
+  
+  /* Typography Scale */
+  --font-family-base: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-size-hero: clamp(2.25rem, 4vw, 3rem);
+  --font-size-h1: clamp(1.75rem, 3.5vw, 2.5rem);
+  --font-size-h2: clamp(1.25rem, 2.5vw, 1.5rem);
+  --font-size-h3: clamp(1.1rem, 2vw, 1.25rem);
+  --font-size-base: clamp(1rem, 2vw, 1.25rem);
+  --font-size-small: clamp(0.875rem, 1.5vw, 1rem);
+  
+  /* Spacing Scale */
+  --spacing-xs: clamp(0.5rem, 1vw, 0.75rem);
+  --spacing-sm: clamp(1rem, 2vw, 1.5rem);
+  --spacing-md: clamp(1.5rem, 3vw, 2rem);
+  --spacing-lg: clamp(2.5rem, 6vw, 4rem);
+  --spacing-xl: clamp(3rem, 8vw, 5rem);
+  
+  /* Layout */
+  --container-max-width: 1200px;
+  --container-padding: clamp(1rem, 3vw, 2.5rem);
+  --grid-gap: clamp(1rem, 3vw, 2rem);
+  
+  /* Borders & Shadows */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-full: 9999px;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-index Scale */
+  --z-base: 1;
+  --z-nav: 50;
+  --z-overlay: 100;
+  --z-modal: 200;
+}
+
+/* ========================================
+   Global Base Styles
+   ======================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +70,9 @@
 }
 
 body {
-  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background-color: #f9fafb;
-  color: #1f2937;
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-main);
+  color: var(--color-text-primary);
 }
 
 /* Enable smooth scrolling only when user has not selected reduced motion */
@@ -19,20 +83,20 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 clamp(1rem, 3vw, 2.5rem);
+  padding: 0 var(--container-padding);
 }
 
 /* Navigation Bar - Frosted Glass Effect */
 header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: var(--z-nav);
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -238,6 +302,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .hero-content {
@@ -245,6 +310,8 @@ header {
   color: #ffffff;
   padding: 0 1rem;
   max-width: 800px;
+  position: relative;
+  z-index: 3;
 }
 
 .hero h2 {
@@ -314,6 +381,7 @@ header {
 
 /* Product Card Styles */
 .products-section {
+  position: relative;
   padding: clamp(2.5rem, 6vw, 4rem) 0;
 }
 
@@ -432,7 +500,9 @@ header {
 .product-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(1rem, 3vw, 2rem);
+  gap: var(--grid-gap);
+  container-type: inline-size;
+  container-name: product-grid;
 }
 
 @media (min-width: 640px) {
@@ -447,13 +517,16 @@ header {
   }
 }
 
+/* Container Query for Product Cards */
 .product-card {
-  background-color: #ffffff;
-  border-radius: 0.5rem;
+  background-color: var(--color-bg-card);
+  border-radius: var(--border-radius-sm);
   overflow: hidden;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  container-type: inline-size;
+  container-name: product-card;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1044,6 +1117,126 @@ header {
   }
 }
 
+/* ========================================
+   Landing Page Sections
+   ======================================== */
+
+/* Fullscreen Hero for Landing Page */
+.hero-fullscreen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Features Section */
+.features-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-bg-main);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-card {
+  background-color: var(--color-bg-card);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .feature-card {
+    transition: all var(--transition-base);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-sm);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.feature-card h3 {
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-primary);
+}
+
+.feature-card p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  color: white;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.cta-content h2 {
+  font-size: var(--font-size-h1);
+  margin-bottom: var(--spacing-sm);
+}
+
+.cta-content p {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-md);
+  opacity: 0.95;
+}
+
+.cta-btn-large {
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  background-color: white;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cta-btn-large:hover {
+    background-color: var(--color-accent);
+    color: white;
+    transform: scale(1.05);
+  }
+}
+
+/* ======================================== */
+
 /* Footer Styles */
 footer {
   background-color: #1f2937;
@@ -1126,6 +1319,411 @@ footer {
   margin-bottom: 0.75rem;
   color: #d1d5db;
 }
+
+/* ========================================
+   SVG Vine Animation Styles
+   ======================================== */
+
+/* Header vines - float with sticky nav */
+.header-vine {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.header-vine-left {
+  left: 5px;
+}
+
+.header-vine-right {
+  right: 5px;
+}
+
+/* Page content wrapper for vine positioning */
+.page-content {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Hero section should not affect vine container height */
+.hero-fullscreen {
+  position: relative;
+  z-index: 0;
+}
+
+/* Page vines - scroll with content */
+.page-vine {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+}
+
+.page-vine-left {
+  left: 0;
+}
+
+.page-vine-right {
+  right: 0;
+}
+
+.page-vine svg {
+  height: 100%;
+  width: 100%;
+}
+
+/* Mobile (default < 768px) */
+@media (max-width: 767px) {
+  .page-content {
+    min-height: 100vh;
+  }
+  
+  .page-vine {
+    width: 45px;
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+  }
+  
+  .page-vine svg {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .page-vine .vine-path {
+    stroke-width: 2;
+    opacity: 0.6;
+  }
+  
+  .page-vine .leaf ellipse {
+    transform-origin: center;
+  }
+  
+  .page-vine-left .leaf ellipse {
+    rx: 7;
+    ry: 11;
+  }
+  
+  .page-vine-right .leaf ellipse {
+    rx: 7;
+    ry: 11;
+  }
+  
+  .header-vine {
+    width: 30px;
+    height: 50px;
+    display: block;
+  }
+  
+  .header-vine .vine-path {
+    stroke-width: 1.5;
+  }
+  
+  .header-vine .leaf ellipse {
+    rx: 6;
+    ry: 9;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .page-content {
+    min-height: 100vh;
+  }
+  
+  .page-vine {
+    width: 65px;
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+  }
+  
+  .page-vine svg {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .page-vine .vine-path {
+    stroke-width: 2.5;
+    opacity: 0.65;
+  }
+  
+  .page-vine .leaf ellipse {
+    transform-origin: center;
+  }
+  
+  .page-vine-left .leaf ellipse {
+    rx: 9;
+    ry: 14;
+  }
+  
+  .page-vine-right .leaf ellipse {
+    rx: 9;
+    ry: 14;
+  }
+  
+  .header-vine {
+    width: 45px;
+    height: 65px;
+    display: block;
+  }
+  
+  .header-vine .vine-path {
+    stroke-width: 2;
+  }
+  
+  .header-vine .leaf ellipse {
+    rx: 8;
+    ry: 12;
+  }
+}
+
+/* Desktop (1024px and above) - Keep existing perfect styles */
+@media (min-width: 1024px) {
+  /* Desktop styles remain unchanged */
+}
+
+/* Vine path animation */
+.vine-path {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-vine.vine-grow {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+
+  .page-vine.vine-grow .vine-path {
+    animation: vineGrow 4s ease-out forwards;
+  }
+
+  .page-vine.vine-grow .leaf {
+    animation: leafUnfurl 0.9s ease-out forwards;
+    transform-origin: center;
+    opacity: 0;
+  }
+
+  /* Staggered leaf animations */
+  .page-vine.vine-grow .leaf[data-delay="0.1"] { animation-delay: 0.4s; }
+  .page-vine.vine-grow .leaf[data-delay="0.12"] { animation-delay: 0.45s; }
+  .page-vine.vine-grow .leaf[data-delay="0.15"] { animation-delay: 0.6s; }
+  .page-vine.vine-grow .leaf[data-delay="0.17"] { animation-delay: 0.65s; }
+  .page-vine.vine-grow .leaf[data-delay="0.2"] { animation-delay: 0.8s; }
+  .page-vine.vine-grow .leaf[data-delay="0.22"] { animation-delay: 0.85s; }
+  .page-vine.vine-grow .leaf[data-delay="0.25"] { animation-delay: 1s; }
+  .page-vine.vine-grow .leaf[data-delay="0.27"] { animation-delay: 1.05s; }
+  .page-vine.vine-grow .leaf[data-delay="0.3"] { animation-delay: 1.2s; }
+  .page-vine.vine-grow .leaf[data-delay="0.32"] { animation-delay: 1.25s; }
+  .page-vine.vine-grow .leaf[data-delay="0.35"] { animation-delay: 1.4s; }
+  .page-vine.vine-grow .leaf[data-delay="0.37"] { animation-delay: 1.45s; }
+  .page-vine.vine-grow .leaf[data-delay="0.4"] { animation-delay: 1.6s; }
+  .page-vine.vine-grow .leaf[data-delay="0.42"] { animation-delay: 1.65s; }
+  .page-vine.vine-grow .leaf[data-delay="0.45"] { animation-delay: 1.8s; }
+  .page-vine.vine-grow .leaf[data-delay="0.47"] { animation-delay: 1.85s; }
+  .page-vine.vine-grow .leaf[data-delay="0.5"] { animation-delay: 2s; }
+  .page-vine.vine-grow .leaf[data-delay="0.52"] { animation-delay: 2.05s; }
+  .page-vine.vine-grow .leaf[data-delay="0.55"] { animation-delay: 2.2s; }
+  .page-vine.vine-grow .leaf[data-delay="0.57"] { animation-delay: 2.25s; }
+  .page-vine.vine-grow .leaf[data-delay="0.6"] { animation-delay: 2.4s; }
+  .page-vine.vine-grow .leaf[data-delay="0.62"] { animation-delay: 2.45s; }
+  .page-vine.vine-grow .leaf[data-delay="0.65"] { animation-delay: 2.6s; }
+  .page-vine.vine-grow .leaf[data-delay="0.67"] { animation-delay: 2.65s; }
+  .page-vine.vine-grow .leaf[data-delay="0.7"] { animation-delay: 2.8s; }
+  .page-vine.vine-grow .leaf[data-delay="0.72"] { animation-delay: 2.85s; }
+  .page-vine.vine-grow .leaf[data-delay="0.75"] { animation-delay: 3s; }
+  .page-vine.vine-grow .leaf[data-delay="0.77"] { animation-delay: 3.05s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-vine.vine-grow {
+    opacity: 0.7;
+  }
+
+  .page-vine.vine-grow .vine-path {
+    stroke-dashoffset: 0;
+  }
+
+  .page-vine.vine-grow .leaf {
+    opacity: 0.6;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes vineGrow {
+  from {
+    stroke-dashoffset: 2000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes leafUnfurl {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(90deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotateZ(0deg);
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(50vh) translateX(100px) rotateZ(180deg);
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(110vh) translateX(-50px) rotateZ(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translateX(0) rotateY(0deg);
+  }
+  25% {
+    transform: translateX(40px) rotateY(90deg);
+  }
+  50% {
+    transform: translateX(-20px) rotateY(180deg);
+  }
+  75% {
+    transform: translateX(30px) rotateY(270deg);
+  }
+}
+
+/* ======================================== */
+/* Falling Leaves Animation */
+/* ======================================== */
+
+.falling-leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.falling-leaves .leaf {
+  position: absolute;
+  top: -10vh;
+  width: 25px;
+  height: 30px;
+  background: linear-gradient(135deg, #10652F 0%, #14532d 50%, #10652F 100%);
+  border-radius: 0 100% 0 100%;
+  opacity: 0.9;
+  animation: fall linear infinite;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  transform-style: preserve-3d;
+}
+
+.falling-leaves .leaf:nth-child(1) {
+  left: 5%;
+  animation-duration: 14s;
+  animation-delay: 0s;
+}
+
+.falling-leaves .leaf:nth-child(2) {
+  left: 15%;
+  animation-duration: 18s;
+  animation-delay: 3s;
+  background: linear-gradient(135deg, #14532d 0%, #10652F 100%);
+  width: 22px;
+  height: 28px;
+}
+
+.falling-leaves .leaf:nth-child(3) {
+  left: 25%;
+  animation-duration: 16s;
+  animation-delay: 6s;
+  width: 28px;
+  height: 32px;
+}
+
+.falling-leaves .leaf:nth-child(4) {
+  left: 35%;
+  animation-duration: 20s;
+  animation-delay: 2s;
+  background: linear-gradient(135deg, #16a34a 0%, #10652F 50%, #14532d 100%);
+}
+
+.falling-leaves .leaf:nth-child(5) {
+  left: 45%;
+  animation-duration: 15s;
+  animation-delay: 8s;
+  width: 24px;
+  height: 29px;
+}
+
+.falling-leaves .leaf:nth-child(6) {
+  left: 55%;
+  animation-duration: 17s;
+  animation-delay: 4s;
+  background: linear-gradient(135deg, #14532d 0%, #16a34a 100%);
+  width: 26px;
+  height: 31px;
+}
+
+.falling-leaves .leaf:nth-child(7) {
+  left: 65%;
+  animation-duration: 19s;
+  animation-delay: 1s;
+}
+
+.falling-leaves .leaf:nth-child(8) {
+  left: 75%;
+  animation-duration: 16s;
+  animation-delay: 7s;
+  background: linear-gradient(135deg, #10652F 0%, #16a34a 100%);
+  width: 23px;
+  height: 27px;
+}
+
+.falling-leaves .leaf:nth-child(9) {
+  left: 85%;
+  animation-duration: 21s;
+  animation-delay: 5s;
+  width: 27px;
+  height: 33px;
+}
+
+.falling-leaves .leaf:nth-child(10) {
+  left: 95%;
+  animation-duration: 18s;
+  animation-delay: 9s;
+  background: linear-gradient(135deg, #16a34a 0%, #14532d 50%, #10652F 100%);
+}
+
+/* ======================================== */
 
 /* 响应式适配 */
 @media (min-width: 768px) {
